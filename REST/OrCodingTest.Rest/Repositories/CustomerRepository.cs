@@ -17,7 +17,9 @@ public class CustomerRepository : IRepository<Customer>
     {
         using var connection = _context.CreateConnection();
         var sql = """
-            SELECT * FROM Customer
+            SELECT
+                c.*,
+                (SELECT COUNT(*) FROM Address WHERE CustomerId = c.Id) AddressCount FROM Customer c
         """;
         return await connection.QueryAsync<Customer>(sql);
     }
@@ -26,7 +28,7 @@ public class CustomerRepository : IRepository<Customer>
     {
         using var connection = _context.CreateConnection();
         var sql = """
-            SELECT * FROM Customer WHERE Id = @id
+            SELECT c.*, (SELECT COUNT(*) FROM Address WHERE Id = @id) FROM Customer WHERE Id = @id
         """;
         return await connection.QuerySingleOrDefaultAsync<Customer>(
             sql,
@@ -64,5 +66,5 @@ public class CustomerRepository : IRepository<Customer>
             WHERE Id = @id
         """;
         await connection.ExecuteAsync(sql, new { id });
-    }   
+    }
 }

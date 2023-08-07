@@ -4,6 +4,7 @@ export interface ICustomer
     firstName: string;
     lastName: string;
     deleted: boolean;
+    addressCount: number;
 }
 
 export class DefaultCustomer implements ICustomer
@@ -12,6 +13,7 @@ export class DefaultCustomer implements ICustomer
     firstName: string = '';
     lastName: string = '';
     deleted: boolean = false;
+    addressCount: number = 0;
 }
 
 export const DEFAULT_CUSTOMER = new DefaultCustomer();

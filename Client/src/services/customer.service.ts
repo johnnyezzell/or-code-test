@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { IConfiguration } from "src/assets/configuration.interface";
 import { ICustomer } from "src/models/customer.interface";
 import { config } from "src/assets/config";
+import { map, merge, mergeAll } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -31,6 +31,10 @@ export class CustomerService
     }
 
     deleteCustomer(id: number) {
-        return this.httpClient.delete(`${config.baseHttpReference}/customers/${id}`);        
+        return this.httpClient.delete(`${config.baseHttpReference}/customers/${id}/addresses`).pipe(
+            map(() => this.httpClient.delete(`${config.baseHttpReference}/customers/${id}`)),
+            mergeAll()
+        );
     }
+    
 }

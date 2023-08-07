@@ -3,14 +3,16 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="OrCodingTest.Rest.Tests/Controllers/CustomersControllerTests.cs">
     <Files>
-      <File FileName="OrCodingTest.Rest.Tests/Controllers/CustomersControllerTests.cs" Line="10" Column="13" />
+      <File FileName="OrCodingTest.Rest.Tests/Controllers/CustomersControllerTests.cs" Line="12" Column="3" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.306/Microsoft.Common.CurrentVersion.targets" Line="2116" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="REST" expanded="True">
-            <Node name="OrCodingTest.Rest" selected="True" />
+            <Node name="OrCodingTest.Rest" expanded="True" />
             <Node name="OrCodingTest.Rest.Tests" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
@@ -18,7 +20,7 @@
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="REST" expanded="True" selected="True" />
+          <Node name="REST" selected="True" />
         </State>
       </Pad>
     </Pads>

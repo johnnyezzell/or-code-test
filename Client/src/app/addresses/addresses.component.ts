@@ -17,6 +17,7 @@ export class AddressesComponent {
   addressesSubject = new BehaviorSubject<IAddress[]>([]);
   addresses$ = this.addressesSubject.asObservable();
 
+
   editing = false;
 
   constructor(private addressService: AddressService) {
@@ -54,7 +55,6 @@ export class AddressesComponent {
   }
 
   updatedAddress() {
-    //this.selectedAddress = address;
     this.refreshList(false);
   }
 

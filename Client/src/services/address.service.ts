@@ -31,4 +31,8 @@ export class AddressService
     deleteAddress(customerId: number, id: number) {
         return this.httpClient.delete(`${config.baseHttpReference}/customers/${customerId}/addresses/${id}`);        
     }
+
+    deleteAllAddress(customerId: number) {
+        return this.httpClient.delete(`${config.baseHttpReference}/customers/${customerId}/addresses/all`);           
+    }
 }

@@ -79,5 +79,18 @@ public class AddressRepository : IRepository<Address>
             sql += " AND CustomerId = @foreignId";
 
         await connection.ExecuteAsync(sql, parameters);
-    }   
+    }
+
+    public async Task DeleteAll(int foreignId)
+    {
+        using var connection = _context.CreateConnection();
+        var sql = """
+            DELETE FROM Address 
+            WHERE CustomerId = @foreignId
+        """;
+
+        object parameters = new { foreignId };
+
+        await connection.ExecuteAsync(sql, parameters);
+    }
 }

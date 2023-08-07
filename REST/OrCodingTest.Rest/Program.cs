@@ -22,7 +22,7 @@ services.AddControllers().AddJsonOptions(x =>
 
 // Add repositories
 
-services.AddScoped<IRepository<Address>, AddressRepository>();
+services.AddScoped<AddressRepository, AddressRepository>();
 services.AddScoped<IRepository<Customer>, CustomerRepository>();
 
 var app = builder.Build();

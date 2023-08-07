@@ -9,9 +9,9 @@ using OrCodingTest.Rest.Entities;
 [Route("customers/{customerId}/addresses")]
 public class AddressesController : ControllerBase
 {
-    private readonly IRepository<Address> _addressRepository;
+    private readonly AddressRepository _addressRepository;
 
-    public AddressesController(IRepository<Address> addressRepository)
+    public AddressesController(AddressRepository addressRepository)
     {
         _addressRepository = addressRepository;
     }
@@ -70,4 +70,10 @@ public class AddressesController : ControllerBase
         return Ok();
     }
 
+    [HttpDelete()]
+    public async Task<IActionResult> Delete(int customerId)
+    {
+        await _addressRepository.DeleteAll(customerId);
+        return Ok();
+    }
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmationDialogComponent } from 'src/app/common/confirmation-dialog/confirmation-dialog.component';
-import { ICustomer } from 'src/models/customer.interface';
+import { DEFAULT_CUSTOMER, ICustomer } from 'src/models/customer.interface';
 import { CustomerService } from 'src/services/customer.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CustomerService } from 'src/services/customer.service';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent {
-  @Input() customer: ICustomer = { id: 0, firstName: "", lastName: "", deleted: false};
+  @Input() customer: ICustomer = DEFAULT_CUSTOMER;
   @Input() selectedId: number = 0;
 
   deleted = false;
@@ -48,7 +48,7 @@ export class CustomerComponent {
       width: '250px',
       data: {
         title: 'Delete',
-        content: 'Delete this customer?',
+        content: 'Delete this customer and all associated addresses?',
         confirmFunction: () => {
           if (this.customer)
             this.delete(this.customer.id);
