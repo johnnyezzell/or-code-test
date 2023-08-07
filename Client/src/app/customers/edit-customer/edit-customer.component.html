@@ -1,0 +1,19 @@
+<form class="edit-customer-form" [formGroup]="formGroup">
+    <mat-card>
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required tabIndex="1">
+            <mat-error *ngIf="getErrorMessage('firstName')">{{getErrorMessage('firstName')}}</mat-error>    
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" required tabIndex="2">
+            <mat-error *ngIf="getErrorMessage('lastName')">{{getErrorMessage('lastName')}}</mat-error>
+        </mat-form-field>
+        <div class="divider"></div>
+        <div class="buttons">
+            <button mat-raised-button type="submit" class="save-button" [disabled]="formGroup.invalid" color="warn" (click)="save()" tabIndex="3">Save</button>
+            <button mat-raised-button class="cancel-button" color="primary" (click)="cancel()" tabIndex="4">Cancel</button>
+        </div>
+    </mat-card>
+</form>

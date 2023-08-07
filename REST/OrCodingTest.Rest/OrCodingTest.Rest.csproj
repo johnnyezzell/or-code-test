@@ -6,9 +6,9 @@
         <RootNamespace>OrCodingTest.Rest</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Dapper" Version="2.0.123" />
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Dapper" Version="2.0.143" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.9" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
     <ItemGroup>
       <Content Update="Properties\launchSettings.json">

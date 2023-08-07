@@ -1,0 +1,17 @@
+.name {
+    color: black;
+    text-transform: capitalize;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgb(195, 223, 255);
+}
+
+.selected {
+    background-color: rgb(138, 193, 255);
+}
+
+.deleted {
+    display: none;
+}

@@ -1,0 +1,36 @@
+@import '../../../assets/styles/colors';
+
+.edit-address-form {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 1em;
+    background-color: $editBackgroundSecondary;
+
+    .buttons {
+
+        .primary-button {
+            background-color: $primary;
+        }
+        
+        .secondary-button {
+            background-color: $secondary;
+        }
+
+        button {
+            margin-right: 10px;
+
+            &:disabled {
+                background-color: $disabled;
+            }
+        }
+
+    }
+
+    .break {
+        flex-basis: 100%;
+        width: 0;
+    }
+}

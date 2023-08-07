@@ -1,0 +1,20 @@
+<div class="page">
+  <p class="header">
+    <mat-toolbar color="primary">
+      <span id="title">{{title}}</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+  </p>
+
+  <div class="content">
+
+    <div class="left">
+      <app-customers (customerEmitter)="selectCustomer($event)"></app-customers>
+    </div>
+
+    <div class="right">
+      <app-addresses [selectedCustomer]="selectedCustomer"></app-addresses>
+    </div>
+
+  </div>
+</div>

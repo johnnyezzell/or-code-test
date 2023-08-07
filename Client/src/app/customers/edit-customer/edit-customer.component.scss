@@ -1,0 +1,19 @@
+.edit-customer-form {
+    margin: 25px;
+
+    .buttons {
+        display: grid;
+        grid-template-columns: auto 5px auto;
+        
+        .save-button {
+            grid-column: 1;
+        }   
+        .cancel-button {
+            grid-column: 3;
+        }
+    }
+}
+
+.divider {
+    margin-bottom: 20px;
+}

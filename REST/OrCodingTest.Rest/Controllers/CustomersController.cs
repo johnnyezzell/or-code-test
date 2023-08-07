@@ -50,13 +50,13 @@ public class CustomersController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> Update(UpdateCustomerRequest model)
     {
-        Customer address = new () {
+        Customer customer = new () {
             Id = model.Id,
             FirstName = model.FirstName,
             LastName = model.LastName
         };
 
-        await _customerRepository.Update(address);
+        await _customerRepository.Update(customer);
         return Ok(new { message = "Customer updated" });
     }
 

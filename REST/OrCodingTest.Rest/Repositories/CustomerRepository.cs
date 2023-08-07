@@ -50,7 +50,7 @@ public class CustomerRepository : IRepository<Customer>
         var sql = """
             UPDATE Customer 
             SET FirstName = @FirstName,
-                LastName = @LastName,
+                LastName = @LastName
             WHERE Id = @Id
         """;
         await connection.ExecuteAsync(sql, customer);
