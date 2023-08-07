@@ -2,8 +2,10 @@
 ## Notes
 After making this there are a few things I would have done differently.
 
-I thought it would take more time to do the angular routing child routes, but if I did this again, I would have used that instead. Not only would I get the ability to hit the back button etc, but I think the code would have been cleaner. I'm going to update it later to be this way.
-
+- I thought it would take more time to do the angular routing child routes, but if I did this again, I would have used that instead. Not only would I get the ability to hit the back button etc, but I think the code would have been cleaner. I'm going to update it later to be this way.
+- Realized my DB tables don't have audit columns... doh!
+- Will get this to 80% test coverage in a future update.
+- Will containerize this and setup compose in a future update.
  
 
 ## Dependencies
