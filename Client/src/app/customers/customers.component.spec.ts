@@ -25,7 +25,7 @@ describe('CustomersComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('clicking "New Customer" should replace the list of customers with new customer screen', () => {
+  it('should replace the list of customers with new customer screen when clicking "Add Customer"', () => {
     
     // Create fixture
     const fixture = TestBed.createComponent(CustomersComponent);
