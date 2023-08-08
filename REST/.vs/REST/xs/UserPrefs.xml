@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{F3B9603F-F910-4E52-B325-97BB0F387789}|Default">
+﻿<Properties StartupConfiguration="{A0CD0025-E2DB-4AE9-A718-008446F7E4D3}|Default">
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.OrCodingTest.Rest.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="OrCodingTest.Rest.Tests/Controllers/CustomersControllerTests.cs">

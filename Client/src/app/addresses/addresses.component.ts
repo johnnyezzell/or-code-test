@@ -1,8 +1,9 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AddressService } from 'src/services/address.service';
-import { DEFAULT_ADDRESS, IAddress } from 'src/models/address.interface';
+import { DEFAULT_ADDRESS, DefaultAddress, IAddress } from 'src/models/address.interface';
 import { DEFAULT_CUSTOMER, ICustomer } from 'src/models/customer.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-addresses',
@@ -15,22 +16,36 @@ export class AddressesComponent {
   selectedAddress: IAddress = DEFAULT_ADDRESS;
   addressesSubject = new BehaviorSubject<IAddress[]>([]);
   addresses$ = this.addressesSubject.asObservable();
-
+  customerId = 0;
+  id = 0;
   editing = false;
 
-  constructor(private addressService: AddressService) {
-    this.refreshList(false);
+  constructor(
+    private addressService: AddressService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+
+    activatedRoute.parent?.params.subscribe(params => {
+      this.customerId = Number.parseInt(params['id']); 
+      console.log(this.customerId);
+      this.refreshList();
+    });
+
+    activatedRoute.params.subscribe(params => {
+      this.id = Number.parseInt(params['id'] ?? 0);
+    })
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.refreshList(false);
+    this.refreshList();
   }
 
-  refreshList(editing: boolean) {
-    this.addressService.getAll(this.selectedCustomer.id).subscribe({
+  refreshList() {
+    this.addressService.getAll(this.customerId).subscribe({
       next: (data: IAddress[]) => {
         this.addressesSubject.next(data);
-        this.editing = editing;
       },
     });
   }
@@ -40,7 +55,7 @@ export class AddressesComponent {
   }
 
   newAddress() {
-    this.selectedAddress = DEFAULT_ADDRESS;
+    Object.assign(this.selectedAddress, DEFAULT_ADDRESS);
     this.editing = true;
   }
 
@@ -53,10 +68,13 @@ export class AddressesComponent {
   }
 
   updatedAddress() {
-    this.refreshList(false);
+    this.editing = false;
+    this.refreshList();
   }
 
   deleteAddress() {
-    this.refreshList(false);
+    this.refreshList();
   }
 }
+
+

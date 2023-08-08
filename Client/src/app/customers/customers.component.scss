@@ -1,1 +1,16 @@
 @use '../../assets/styles/list.scss';
+
+.content {
+    display: flex;
+    height: calc(100vh - 64px);
+
+    .left {
+        width: 400px;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .right {
+        flex: 2;
+        background-color: rgb(170, 210, 246);
+    }
+}

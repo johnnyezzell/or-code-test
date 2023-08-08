@@ -1,21 +1,28 @@
-<div class="container">
-    <div class="add-container" *ngIf="!editing">
-        <button id="add-customer" mat-raised-button color="primary" (click)="newCustomer()">New Customer</button>
-    </div>
-    <div class="items" *ngIf="!editing && customers$">
-        <div *ngFor="let customer of customers$ | async">
-            <app-customer
-                [selectedId]="selectedCustomer.id"
-                [customer]="customer"
-                (customerSelectedEvent)="selectCustomer($event)"
-                (customerEditEvent)="editCustomer($event)"
-                (customerDeleteEvent)="deleteCustomer()"></app-customer>
+<div class="content">
+    <div class="left">
+        <div class="container">
+            <div class="add-container" *ngIf="!editing">
+                <button id="add-customer" mat-raised-button color="primary" (click)="newCustomer()">New Customer</button>
+            </div>
+            <div class="items" *ngIf="!editing && customers$">
+                <div *ngFor="let customer of customers$ | async">
+                    <app-customer
+                        [selectedId]="selectedCustomerId"
+                        [customer]="customer"
+                        (customerSelectedEvent)="selectCustomer($event)"
+                        (customerEditEvent)="editCustomer($event)"
+                        (customerDeleteEvent)="deleteCustomer()"></app-customer>
+                </div>
+            </div>
+            <div class="items" *ngIf="editing">
+                <app-edit-customer
+                    (customerCancelEvent)="cancelEdit()"
+                    (customerUpdateEvent)="updateCustomer($event)"></app-edit-customer>
+            </div>
         </div>
     </div>
-    <div class="items" *ngIf="editing">
-        <app-edit-customer
-            [customer]="selectedCustomer"
-            (customerCancelEvent)="cancelEdit()"
-            (customerUpdateEvent)="updateCustomer($event)"></app-edit-customer>
+    <div class="right">
+        <router-outlet></router-outlet>
     </div>
 </div>
+

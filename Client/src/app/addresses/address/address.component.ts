@@ -19,6 +19,7 @@ export class AddressComponent {
   deleted = false;
   editing = false;
 
+
   @Output() addressSelectedEvent = new EventEmitter<IAddress>();
   @Output() addressEditEvent = new EventEmitter<IAddress>();
   @Output() addressDeleteEvent = new EventEmitter();
@@ -27,7 +28,8 @@ export class AddressComponent {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     public addressService: AddressService
-  ) {}
+  ) {
+  }
 
   select(address: IAddress) {
     this.address = address;
@@ -45,12 +47,10 @@ export class AddressComponent {
   edit(e: Event, address: IAddress) {
     e.preventDefault();
     e.stopPropagation();
-    this.addressEditEvent.emit(address);
     this.editing = true;
   }
 
   delete(id: number) {
-    console.log(this.customerId);
     this.addressService.deleteAddress(this.customerId, id).subscribe({
       next: () => {
         this.snackBar.open("The customer was deleted!", undefined, { duration: 3000 });

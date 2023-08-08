@@ -1,21 +1,21 @@
 <div class="container">
     <div class="add-container">
-        <button mat-raised-button color="primary" (click)="newAddress()" [disabled]="editing || selectedCustomer.id === 0">New Address</button>
+        <button mat-raised-button color="primary" (click)="newAddress()" [disabled]="id || customerId === 0">New Address</button>
     </div>
     <!-- *ngIf="!editing && addresses$" -->
     <div class="items">
         <app-edit-address 
             *ngIf="editing"
             [address]="selectedAddress"
-            [selectedCustomerId]="selectedCustomer.id"
+            [selectedCustomerId]="customerId"
             (addressUpdateEvent)="updatedAddress()"
             (addressCancelEvent)="cancelEdit()">
          </app-edit-address>
-        <div *ngIf="selectedCustomer.id">
+        <div *ngIf="customerId">
             <div *ngFor="let address of addresses$ | async">
                 <app-address
                     [selectedId]="selectedAddress.id"
-                    [customerId]="selectedCustomer.id"
+                    [customerId]="customerId"
                     [address]="address"
                     (addressSelectedEvent)="selectAddress($event)"
                     (addressEditEvent)="editAddress($event)"

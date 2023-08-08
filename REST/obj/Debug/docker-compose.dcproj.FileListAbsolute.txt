@@ -1,0 +1,16 @@
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/OrCodingTest.Rest.deps.json
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/OrCodingTest.Rest.runtimeconfig.json
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/appsettings.json
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/OrCodingTest.Rest
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/OrCodingTest.Rest.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Microsoft.Data.Sqlite.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Swashbuckle.AspNetCore.Swagger.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Dapper.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/SQLitePCLRaw.core.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/Microsoft.OpenApi.dll
+/Users/johnnyezzell/Code/OrCodingTest/REST/bin/Debug/OrCodingTest.Rest.pdb
+/Users/johnnyezzell/Code/OrCodingTest/REST/obj/Debug/docker-compose.dcproj.AssemblyReference.cache
+/Users/johnnyezzell/Code/OrCodingTest/REST/obj/Debug/docker-compose.dcproj.CoreCompileInputs.cache
+/Users/johnnyezzell/Code/OrCodingTest/REST/obj/Debug/docker-compose.dcproj.CopyComplete

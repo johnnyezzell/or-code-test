@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from 'src/app/common/confirmation-dialog/confirmation-dialog.component';
 import { DEFAULT_CUSTOMER, ICustomer } from 'src/models/customer.interface';
 import { CustomerService } from 'src/services/customer.service';
@@ -23,13 +24,12 @@ export class CustomerComponent {
   constructor(
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    public customerService: CustomerService
+    public customerService: CustomerService,
+    private router: Router
   ) {}
 
   edit(e: Event, customer: ICustomer) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.customerEditEvent.emit(customer);
+    this.router.navigateByUrl(`/customers/${customer.id}/edit`);
   }
 
   delete(id: number) {
@@ -58,7 +58,6 @@ export class CustomerComponent {
   }
 
   select(customer: ICustomer) {
-    this.selectedId = customer.id;
-    this.customerSelectedEvent.emit(this.customer);
+    this.router.navigateByUrl(`/customers/${customer.id}/addresses`);
   }
 }

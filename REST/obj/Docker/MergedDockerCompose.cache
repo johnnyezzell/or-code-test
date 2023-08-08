@@ -1,0 +1,18 @@
+name: dockercompose9319027509030166583
+services:
+  orcodingtest.rest:
+    build:
+      context: /Users/johnnyezzell/Code/OrCodingTest/REST
+      dockerfile: OrCodingTest.Rest/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: orcodingtest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose9319027509030166583_default

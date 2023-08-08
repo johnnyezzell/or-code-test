@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { DEFAULT_CUSTOMER, DefaultCustomer, ICustomer } from 'src/models/customer.interface';
 import { CustomerService } from 'src/services/customer.service';
@@ -12,31 +13,36 @@ export class CustomersComponent {
 
   @Output() customerEmitter = new EventEmitter<ICustomer>();
 
-  selectedCustomer: ICustomer = DEFAULT_CUSTOMER;
+  selectedCustomerId = 0;
   customersSubject = new BehaviorSubject<ICustomer[]>([]);
   customers$ = this.customersSubject.asObservable();
 
   editing: boolean = false;
   
-  constructor(private customerService: CustomerService) {
+  constructor(
+    private customerService: CustomerService, 
+    private activatedRoute: ActivatedRoute
+  ) {
+    activatedRoute.params.subscribe(params => {
+      this.selectedCustomerId = params['id'];
+    })
     customerService.getAll().subscribe({
       next: (data: ICustomer[]) => this.customersSubject.next(data) 
     });
   }
 
   newCustomer() {
-    this.selectedCustomer = new DefaultCustomer();
-    this.customerEmitter.emit(this.selectedCustomer);
+    this.selectedCustomerId = 0;
     this.editing = true;
   }
 
   selectCustomer(customer: ICustomer) {
-    this.selectedCustomer = customer;
+    //this.selectedCustomer = customer;
     this.customerEmitter.emit(customer);
   }
 
   editCustomer(customer: ICustomer) {
-    this.selectedCustomer = customer;
+    //this.selectedCustomer = customer;
     this.editing = true;
   }
 
@@ -54,8 +60,8 @@ export class CustomersComponent {
   }
 
   updateCustomer(customer: ICustomer) {
-    this.selectedCustomer.firstName = customer.firstName;
-    this.selectedCustomer.lastName = customer.lastName;
+    // this.selectedCustomer.firstName = customer.firstName;
+    // this.selectedCustomer.lastName = customer.lastName;
     this.customerService.getAll().subscribe({
       next: (data: ICustomer[]) => {
         this.customersSubject.next(data);
