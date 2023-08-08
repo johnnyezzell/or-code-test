@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrCodingTest.Rest", ".\OrCodingTest.Rest\OrCodingTest.Rest.csproj", "{A0CD0025-E2DB-4AE9-A718-008446F7E4D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrCodingTest.Rest", "OrCodingTest.Rest\OrCodingTest.Rest.csproj", "{A0CD0025-E2DB-4AE9-A718-008446F7E4D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrCodingTest.Rest.Tests", ".\OrCodingTest.Rest.Tests\OrCodingTest.Rest.Tests.csproj", "{8517D179-23D5-4416-BFB2-426FCFB1AEB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrCodingTest.Rest.Tests", "OrCodingTest.Rest.Tests\OrCodingTest.Rest.Tests.csproj", "{8517D179-23D5-4416-BFB2-426FCFB1AEB5}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F3B9603F-F910-4E52-B325-97BB0F387789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8517D179-23D5-4416-BFB2-426FCFB1AEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8517D179-23D5-4416-BFB2-426FCFB1AEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8517D179-23D5-4416-BFB2-426FCFB1AEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B9603F-F910-4E52-B325-97BB0F387789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B9603F-F910-4E52-B325-97BB0F387789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B9603F-F910-4E52-B325-97BB0F387789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B9603F-F910-4E52-B325-97BB0F387789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

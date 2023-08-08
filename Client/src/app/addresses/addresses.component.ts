@@ -7,16 +7,14 @@ import { DEFAULT_CUSTOMER, ICustomer } from 'src/models/customer.interface';
 @Component({
   selector: 'app-addresses',
   templateUrl: './addresses.component.html',
-  styleUrls: ['./addresses.component.scss']
+  styleUrls: ['./addresses.component.scss'],
 })
 export class AddressesComponent {
-
   @Input() selectedCustomer: ICustomer = DEFAULT_CUSTOMER;
 
   selectedAddress: IAddress = DEFAULT_ADDRESS;
   addressesSubject = new BehaviorSubject<IAddress[]>([]);
   addresses$ = this.addressesSubject.asObservable();
-
 
   editing = false;
 
@@ -33,7 +31,7 @@ export class AddressesComponent {
       next: (data: IAddress[]) => {
         this.addressesSubject.next(data);
         this.editing = editing;
-      }
+      },
     });
   }
 

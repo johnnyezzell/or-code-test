@@ -4,6 +4,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>OrCodingTest.Rest</RootNamespace>
+        <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.0.143" />
