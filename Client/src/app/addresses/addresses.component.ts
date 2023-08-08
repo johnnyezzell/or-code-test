@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnDestroy, SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AddressService } from 'src/services/address.service';
 import { DEFAULT_ADDRESS, DefaultAddress, IAddress } from 'src/models/address.interface';
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './addresses.component.html',
   styleUrls: ['./addresses.component.scss'],
 })
-export class AddressesComponent {
+export class AddressesComponent implements OnDestroy {
   @Input() selectedCustomer: ICustomer = DEFAULT_CUSTOMER;
 
   selectedAddress: IAddress = DEFAULT_ADDRESS;
@@ -36,6 +36,9 @@ export class AddressesComponent {
       this.id = Number.parseInt(params['id'] ?? 0);
     })
 
+  }
+  ngOnDestroy(): void {
+    this.addressesSubject.unsubscribe();
   }
 
   ngOnChanges(changes: SimpleChanges) {

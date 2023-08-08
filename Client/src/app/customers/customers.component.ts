@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { DEFAULT_CUSTOMER, DefaultCustomer, ICustomer } from 'src/models/customer.interface';
@@ -9,7 +9,7 @@ import { CustomerService } from 'src/services/customer.service';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss']
 })
-export class CustomersComponent {
+export class CustomersComponent implements OnDestroy{
 
   @Output() customerEmitter = new EventEmitter<ICustomer>();
 
@@ -29,6 +29,9 @@ export class CustomersComponent {
     customerService.getAll().subscribe({
       next: (data: ICustomer[]) => this.customersSubject.next(data) 
     });
+  }
+  ngOnDestroy(): void {
+    this.customersSubject.unsubscribe()
   }
 
   newCustomer() {
